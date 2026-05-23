@@ -132,7 +132,7 @@ services:
       - transfans-net
 
   payment-service:
-    image: ghcr.io/transfans/payment-service:latest
+    image: ghcr.io/transfans/payment:latest
     restart: unless-stopped
     environment:
       DATABASE_URL: postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/payment_db
