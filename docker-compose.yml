@@ -136,14 +136,15 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/payment_db
-      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-      JWT_ALGORITHM: HS256
-      INTERNAL_SECRET: ${INTERNAL_SECRET}
-      PROFILE_BASE_URL: http://profile-service:8002
+      SHARED_JWT_SECRET: ${JWT_SECRET_KEY}
+      PROFILE_SERVICE_URL: http://profile-service:8002
+      RABBITMQ_URL: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/
       APP_ENV: production
       DEBUG: "false"
     depends_on:
       postgres:
+        condition: service_healthy
+      rabbitmq:
         condition: service_healthy
     networks:
       - transfans-net
