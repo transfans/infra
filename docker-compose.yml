@@ -142,6 +142,7 @@ services:
       INTERNAL_SECRET: ${INTERNAL_SECRET}
       PROFILE_SERVICE_URL: http://profile-service:8002
       RABBITMQ_URL: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/
+      BASE_URL: http://${SERVER_IP}
     depends_on:
       postgres:
         condition: service_healthy
