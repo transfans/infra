@@ -107,7 +107,7 @@ services:
       - transfans-net
 
   content-service:
-    image: ghcr.io/transfans/content-service:latest
+    image: ghcr.io/transfans/content:latest
     restart: unless-stopped
     environment:
       DATABASE_URL: postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/content_db
