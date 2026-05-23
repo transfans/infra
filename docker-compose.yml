@@ -137,7 +137,7 @@ services:
     image: ghcr.io/transfans/payment:latest
     restart: unless-stopped
     environment:
-      DATABASE_URL: postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/payment_db
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/payment_db
       SHARED_JWT_SECRET: ${JWT_SECRET_KEY}
       INTERNAL_SECRET: ${INTERNAL_SECRET}
       PROFILE_SERVICE_URL: http://profile-service:8002
